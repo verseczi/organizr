@@ -17,7 +17,7 @@ SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 UPGRADEPATH=$SCRIPTPATH"/upgrade"
 UPGRADEFILE=$SCRIPTPATH"/upgrade/upgrade.zip"
 FOLDER=$UPGRADEPATH"/Organizr-"${BRANCH#v}
-URL=https://github.com/causefx/Organizr/archive/${BRANCH}.zip
+URL=https://github.com/verseczi/Organizr/archive/${BRANCH}.zip
 mkdir -p $UPGRADEPATH                                                  && \
 curl -sSL ${URL} > $UPGRADEFILE                                        && \
 unzip $UPGRADEFILE -d $UPGRADEPATH                                     && \
