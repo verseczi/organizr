@@ -3070,7 +3070,7 @@ function menuExtras(active){
 	});
 	if(active === true){
         var userSettings = activeInfo.settings.misc.customUserSettingsURLToggle && activeInfo.settings.misc.customUserSettingsURL !== '' ?
-            `a class="waves-effect" href="`+activeInfo.settings.misc.customUserSettingsURL+`"">` 
+            `<a class="waves-effect" href="`+activeInfo.settings.misc.customUserSettingsURL+`"">` 
             :
             `<a class="inline-popups" href="#account-area" data-effect="mfp-zoom-out">`
 		return (activeInfo.settings.menuLink.organizrSignoutMenuLink) ? `
