@@ -3069,10 +3069,13 @@ function menuExtras(active){
 		adminMenu += (activeInfo.user.groupID <= v.group_id && v.active) ? buildMenuList(v.id) : '';
 	});
 	if(active === true){
+        var userSettingsURL = activeInfo.settings.misc.customUserSettingsURLToggle && activeInfo.settings.misc.customUserSettingsURL !== '' ?
+            activeInfo.settings.misc.customUserSettingsURL : '#account-area'
 		return (activeInfo.settings.menuLink.organizrSignoutMenuLink) ? `
 			<li class="devider"></li>
 			<li id="sign-out"><a class="waves-effect" onclick="logout();"><i class="fa fa-sign-out fa-fw"></i> <span class="hide-menu" lang="en">Logout</span></a></li>
 			<li id="reload"><a class="waves-effect" onclick="reloadCurrentTab();";"><i class="ti-reload"></i> <span class="hide-menu" lang="en">Reload</span></a></li>
+			<li id="user-settings"><a class="waves-effect" href="`+userSettingsURL+`""><i class="ti-settings"></i> <span class="hide-menu" lang="en">Account Settings</span></a></li>
 		` + adminMenu : '' + adminMenu;
 	}else{
 		return (activeInfo.settings.menuLink.organizrSignoutMenuLink) ? `
