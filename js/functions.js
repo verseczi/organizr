@@ -2859,7 +2859,7 @@ function accountManager(user){
             passwordMessage = '';
             break;
     }
-	if (user.data.user.loggedin === true) {
+	if (user.data.user.loggedin === true && activeInfo.settings.misc.customUserSettingsURLToggle === false) {
 	    var twoFADisable = (buildTwoFA(user.data.user.authService) == 'internal') ? '' : 'disabled';
 	    var activeTokens = buildActiveTokens(user.data.user.tokenList);
 		var accountDiv = `
@@ -2939,6 +2939,8 @@ function userMenu(user){
 	var showDebug = (activeInfo.settings.misc.debugArea) ? '<li><a href="javascript:void(0)" onclick="toggleDebug();"><i class="mdi mdi-bug fa-fw"></i> <span lang="en">Debug Area</span></a></li>' : '';
 	menuList += buildLanguage();
 	if (user.data.user.loggedin === true) {
+        var userSettingsURL = activeInfo.settings.misc.customUserSettingsURLToggle && activeInfo.settings.misc.customUserSettingsURL !== '' ?
+            activeInfo.settings.misc.customUserSettingsURL : '#account-area'
 		menuList += `
 			<li class="dropdown">
 				<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)"><img alt="" class="img-circle profile-image" src="`+user.data.user.image+`" width="36"><b class="hidden-xs">`+user.data.user.username+`</b><span class="caret"></span></a>
@@ -2950,7 +2952,7 @@ function userMenu(user){
 						</div>
 					</li>
 					<li class="divider" role="separator"></li>
-					<li class="append-menu"><a class="inline-popups" href="#account-area" data-effect="mfp-zoom-out"><i class="ti-settings fa-fw"></i> <span lang="en">Account Settings</span></a></li>
+					<li class="append-menu"><a class="inline-popups" href="`+userSettingsURL+`" data-effect="mfp-zoom-out"><i class="ti-settings fa-fw"></i> <span lang="en">Account Settings</span></a></li>
 					<li class="divider" role="separator"></li>
 					<li><a href="javascript:void(0)" onclick="lock();"><i class="ti-lock fa-fw"></i> <span lang="en">Lock Screen</span></a></li>
 					${showDebug}
@@ -3070,7 +3072,7 @@ function menuExtras(active){
 		return (activeInfo.settings.menuLink.organizrSignoutMenuLink) ? `
 			<li class="devider"></li>
 			<li id="sign-out"><a class="waves-effect" onclick="logout();"><i class="fa fa-sign-out fa-fw"></i> <span class="hide-menu" lang="en">Logout</span></a></li>
-			<li id="sign-out"><a class="waves-effect" onclick="reloadCurrentTab();";"><i class="ti-reload"></i> <span class="hide-menu" lang="en">Logout</span></a></li>
+			<li id="reload"><a class="waves-effect" onclick="reloadCurrentTab();";"><i class="ti-reload"></i> <span class="hide-menu" lang="en">Reload</span></a></li>
 		` + adminMenu : '' + adminMenu;
 	}else{
 		return (activeInfo.settings.menuLink.organizrSignoutMenuLink) ? `
