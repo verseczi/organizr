@@ -2364,9 +2364,10 @@ class Organizr
 				$this->settingsOption('select', 'defaultSettingsTab', ['label' => 'Default Settings Tab', 'options' => $this->getSettingsTabs(), 'help' => 'Choose which Settings Tab to be default when opening settings page']),
 			],
 			'Other' => [
-				$this->settingsOption('switch', 'checkForUpdate', ['label' => 'Check For Update', 'help' => 'Check for update on Organizr load']),
 				$this->settingsOption('switch', 'customUserSettingsURLToggle', ['label' => 'Custom User Settings', 'help' => 'Replace User Settings URL Toggle']),
-				$this->settingsOption('switch', 'customUserSettingsURL', ['label' => 'Custom User Settings URL', 'help' => 'Replacement for User Settings URL']),
+				$this->settingsOption('input', 'customUserSettingsURL', ['label' => 'Custom User Settings URL', 'help' => 'Replacement for User Settings URL']),
+				$this->settingsOption('switch', 'checkForUpdate', ['label' => 'Check For Update', 'help' => 'Check for update on Organizr load']),
+
 			],
 			'Github' => [
 				$this->settingsOption('select', 'branch', ['label' => 'Branch', 'value' => $this->config['branch'], 'options' => $this->getBranches(), 'disabled' => $this->docker, 'help' => ($this->docker) ? 'Since you are using the Official Docker image, Change the image to change the branch' : 'Choose which branch to download from']),
