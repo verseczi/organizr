@@ -4467,8 +4467,8 @@ class Organizr
 				'authProxyOverrideLogout' => $this->config['authProxyOverrideLogout'],
 				'authProxyLogoutURL' => $this->config['authProxyLogoutURL'],
 				'disableHomepageModals' => $this->config['disableHomepageModals'],
-				'checkForUpdate' => $this->config['checkForUpdate']
-				'customUserSettingsURLToggle' => $this->config['customUserSettingsURLToggle']
+				'checkForUpdate' => $this->config['checkForUpdate'],
+				'customUserSettingsURLToggle' => $this->config['customUserSettingsURLToggle'],
 				'customUserSettingsURL' => $this->config['customUserSettingsURL']
 			],
 			'menuLink' => [
