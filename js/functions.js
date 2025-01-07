@@ -3070,6 +3070,7 @@ function menuExtras(active){
 		return (activeInfo.settings.menuLink.organizrSignoutMenuLink) ? `
 			<li class="devider"></li>
 			<li id="sign-out"><a class="waves-effect" onclick="logout();"><i class="fa fa-sign-out fa-fw"></i> <span class="hide-menu" lang="en">Logout</span></a></li>
+			<li id="sign-out"><a class="waves-effect" onclick="reloadCurrentTab();";"><i class="ti-reload"></i> <span class="hide-menu" lang="en">Logout</span></a></li>
 		` + adminMenu : '' + adminMenu;
 	}else{
 		return (activeInfo.settings.menuLink.organizrSignoutMenuLink) ? `
